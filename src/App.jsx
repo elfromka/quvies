@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import axios from "axios";
 import ApiDb from "./util/api-db";
 
@@ -16,7 +17,7 @@ function App() {
 
     const [movies, setMovies] = useState([]);
     const [genres, setGenres] = useState([]);
-    const [buttonAction, setButtonAction] = useState("search");
+    const [filterClearDisplay, setFilterClearDisplay] = useState("hidden");
     const [query, setQuery] = useState({
         searchByKeyword: "",
         sortByRating: "",
@@ -75,7 +76,7 @@ function App() {
             const responseMovies = await axios.get(fetchUrl);
             const fetchedMovies = responseMovies.data.results;
 
-            setMovies((prevMovies) => {
+            setMovies(() => {
                 if (sortByRating && filterByGenre) {
                     const sortedMovies = fetchedMovies.sort((a, b) => {
                         return sortByRating === "desc"
@@ -121,7 +122,7 @@ function App() {
      * @param event
      */
     function handleChange(event) {
-        const { name, value, type } = event.target;
+        const { name, value } = event.target;
 
         setQuery((prevQuery) => {
             return {
@@ -129,12 +130,19 @@ function App() {
                 [name]: value,
             };
         });
+
+        // TODO: fix this
+        setFilterClearDisplay(() => {
+            // const isEmptyQuery = !Object.values(query).some((v) => v !== "");
+            const isEmptyQuery = !value;
+
+            return isEmptyQuery ? "hidden" : "";
+        });
     }
 
     /**
-     * Function fired on form submit when a keyword is entered in the search input
-     * and the 'Search' button is pressed(form submitted). Clears the previous
-     * value/clears the input on submit.
+     * Function fired on form submit when the 'Search' button is pressed (form submitted).
+     * Searched movies based on the filled in data is retrieved from the API.
      *
      * @param event
      */
@@ -146,17 +154,23 @@ function App() {
     }
 
     /**
-     * Called from handleSubmit method to clear input value.
+     * Called from 'x' button method to clear input and selects/dropdowns value.
+     * Also returns the movies list without any filter from the API.
      *
-     * @param event
+     * @param none
      */
     function handleClear() {
-        setQuery((prevQuery) => {
+        fetchMovies();
+
+        setQuery(() => {
             return {
-                ...prevQuery,
                 searchByKeyword: "",
+                sortByRating: "",
+                filterByGenre: "",
             };
         });
+
+        setFilterClearDisplay("hidden");
     }
 
     return (
@@ -173,7 +187,8 @@ function App() {
                                 query={query}
                                 handleChange={handleChange}
                                 handleSubmit={handleSubmit}
-                                buttonAction={buttonAction}
+                                handleClear={handleClear}
+                                filterClearDisplay={filterClearDisplay}
                             />
                         }
                     />

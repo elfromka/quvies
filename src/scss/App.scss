@@ -1,5 +1,6 @@
 // General styling props
 $primary-color: #6185de;
+$active-color: #556BA0;
 $white-color: #ffffff;
 $grey-color: #969696;
 $text-color: #dcdcdc;
@@ -70,6 +71,35 @@ a {
             color: $primary-color;
             transition: $transition-duration;
         }
+
+        &:active {
+            background-color: $active-color;
+            color: $text-color;
+        }
+    }
+
+    &.btn-secondary {
+        background-color: $white-color;
+        color: $primary-color;
+        transition: $transition-duration;
+
+        &:hover {
+            background-color: $primary-color;
+            color: $white-color;
+            transition: $transition-duration;
+        }
+    }
+
+    &.search {
+        padding: 13px 17px;
+        margin-right: 10px;
+        display: inline-block;
+        min-width: unset;
+        height: unset;
+
+        &.hidden {
+            display: none;
+        }
     }
 }
 
@@ -137,7 +167,7 @@ section.hero {
 
     p {
         width: 40%;
-        align-self: end;
+        align-self: flex-end;
         line-height: 1.4rem;
         margin-bottom: 0;
         color: $grey-color;
@@ -147,7 +177,7 @@ section.hero {
 // Input container (select, button)
 .input-panel {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     margin-bottom: 1rem;
 
@@ -429,6 +459,17 @@ footer {
 
             button {
                 width: 37%;
+            }
+
+            .btn.search {
+                margin-bottom: 1rem;
+                float: right;
+                margin-right: 0;
+            }
+
+            .btn.search::after {
+                content: '';
+                clear: right;
             }
         }
 

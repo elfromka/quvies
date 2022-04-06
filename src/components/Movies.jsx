@@ -10,7 +10,8 @@ export default function Movies({
     handleChange,
     handleSubmit,
     query,
-    buttonAction,
+    handleClear,
+    filterClearDisplay,
 }) {
     return (
         <div className="container">
@@ -20,7 +21,8 @@ export default function Movies({
                 handleSubmit={handleSubmit}
                 handleChange={handleChange}
                 query={query}
-                buttonAction={buttonAction}
+                handleClear={handleClear}
+                filterClearDisplay={filterClearDisplay}
             />
             <div className="movies">
                 {movies && movies.length ? (

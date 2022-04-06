@@ -1,17 +1,28 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function InputPanel({
     genres,
     handleChange,
     handleSubmit,
     query,
-    buttonAction,
+    handleClear,
+    filterClearDisplay,
 }) {
     const { searchByKeyword, sortByRating, filterByGenre } = query;
 
     return (
         <div className="input-panel">
             <div className="select-container">
+                <Link
+                    to="#"
+                    onClick={handleClear}
+                    className={`btn btn-primary search ${filterClearDisplay}`}
+                >
+                    <FontAwesomeIcon icon={faX} size="xs" />{" "}
+                </Link>
                 <select
                     id="filterByGenre"
                     value={filterByGenre}
@@ -48,9 +59,7 @@ export default function InputPanel({
                         value={searchByKeyword}
                         onChange={handleChange}
                     />
-                    <button className="btn btn-primary">
-                        {buttonAction === "search" ? "Search" : "Clear"}
-                    </button>
+                    <button className="btn btn-primary">Search</button>
                 </form>
             </div>
         </div>
