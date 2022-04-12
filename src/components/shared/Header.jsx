@@ -20,7 +20,7 @@ export default function Header() {
                         <a
                             target="_blank"
                             rel="noreferrer"
-                            href="https://github.com/elfromka/quvies-com"
+                            href="https://github.com/elfromka/quvies-com-remastered"
                         >
                             Source code
                         </a>
