@@ -1,4 +1,4 @@
-# Quvies - Movie search SPA - *Remastered*
+# Quvies - Movie search SPA - *With additional fixes*
 
 The front-end application displays the current popular movies in a card format allowing to do some filtering, sorting and searching through the data retrieved from the API.
 
@@ -7,6 +7,7 @@ Stack used:
  2. SASS/SCSS
  3. Axios
  4. React Router
+ 5. React Context
 
 API used in the application: [The MovieDB API](https://www.themoviedb.org/documentation/api)
 
