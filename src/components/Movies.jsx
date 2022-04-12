@@ -1,29 +1,17 @@
-import React from "react";
+import { useContext } from "react";
 import Hero from "./Hero";
 import InputPanel from "./InputPanel";
 import MovieCard from "./MovieCard";
 import { Link } from "react-router-dom";
+import MovieContext from "../context/MovieContext";
 
-export default function Movies({
-    movies,
-    genres,
-    handleChange,
-    handleSubmit,
-    query,
-    handleClear,
-    filterClearDisplay,
-}) {
+export default function Movies() {
+    const { movies } = useContext(MovieContext);
+
     return (
         <div className="container">
             <Hero />
-            <InputPanel
-                genres={genres}
-                handleSubmit={handleSubmit}
-                handleChange={handleChange}
-                query={query}
-                handleClear={handleClear}
-                filterClearDisplay={filterClearDisplay}
-            />
+            <InputPanel />
             <div className="movies">
                 {movies && movies.length ? (
                     movies.map((movie) => {

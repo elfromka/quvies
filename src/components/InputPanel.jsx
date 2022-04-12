@@ -1,17 +1,21 @@
-import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import MovieContext from "../context/MovieContext";
+import { useContext } from "react";
 
-export default function InputPanel({
-    genres,
-    handleChange,
-    handleSubmit,
-    query,
-    handleClear,
-    filterClearDisplay,
-}) {
-    const { searchByKeyword, sortByRating, filterByGenre } = query;
+export default function InputPanel() {
+    const {
+        query,
+        genres,
+        handleClear,
+        filterClearDisplay,
+        filterByGenre,
+        handleChange,
+        handleSubmit,
+    } = useContext(MovieContext);
+
+    const { searchByKeyword, sortByRating } = query;
 
     return (
         <div className="input-panel">

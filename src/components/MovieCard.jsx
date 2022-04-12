@@ -1,4 +1,3 @@
-import React from "react";
 import ApiDb from "../util/api-db";
 
 export default function MovieCard({ info }) {
