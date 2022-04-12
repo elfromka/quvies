@@ -7,10 +7,10 @@ import ApiDb from "./util/api-db";
 import "normalize.css";
 import "./scss/App.scss";
 
-import Header from "./components/Header";
+import Header from "./components/shared/Header";
 import Movies from "./components/Movies";
 import Movie from "./components/Movie";
-import NotFound from "./components/NotFound";
+import NotFound from "./components/Pages/NotFound";
 
 function App() {
     const { BASE_URL, API_KEY } = ApiDb;
@@ -131,9 +131,7 @@ function App() {
             };
         });
 
-        // TODO: fix this
         setFilterClearDisplay(() => {
-            // const isEmptyQuery = !Object.values(query).some((v) => v !== "");
             const isEmptyQuery = !value;
 
             return isEmptyQuery ? "hidden" : "";
