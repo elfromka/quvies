@@ -15,10 +15,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Screenshots:
 - Home/index page:
-<img src="https://github.com/elfromka/quvies-com/blob/master/screenshots/Home-Index.png" />
+<img src="https://github.com/elfromka/quvies/blob/master/screenshots/Home-Index.png" />
 
 - Movie view page:
-<img src="https://github.com/elfromka/quvies-com/blob/master/screenshots/View-Movie.png" />
+<img src="https://github.com/elfromka/quvies/blob/master/screenshots/View-Movie.png" />
 
 - 404 page:
-<img src="https://github.com/elfromka/quvies-com/blob/master/screenshots/404-Not-Found.png" />
+<img src="https://github.com/elfromka/quvies/blob/master/screenshots/404-Not-Found.png" />
