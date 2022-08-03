@@ -1,7 +1,9 @@
+const API_KEY = `api_key=${process.env.REACT_APP_API_KEY}`;
+
 const ApiDb = {
     BASE_URL: "https://api.themoviedb.org/3/",
     IMG_URL: "https://image.tmdb.org/t/p/w500/",
-    API_KEY: "api_key=33925aae900a791e5e7fc4df628771dc",
+    API_KEY: API_KEY,
     FALLBACK_IMG_URL: "http://via.placeholder.com/",
 };
 
